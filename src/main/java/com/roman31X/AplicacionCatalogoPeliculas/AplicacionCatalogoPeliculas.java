@@ -14,7 +14,7 @@ public class AplicacionCatalogoPeliculas {
         var salir = false;
         var consola = new Scanner(System.in);
 
-        // Línea para prueba de acción de REGISTRAR - LISTAR - BUSCAR
+        // Línea para prueba de acción de REGISTRAR - LISTAR - BUSCAR con LIST en tiempo de ejecución
         //IServicioPelicula servicioPelicula = new ServicioPeliculaLista();
 
         // Línea para implementar funcionalidad con archivo.txt
