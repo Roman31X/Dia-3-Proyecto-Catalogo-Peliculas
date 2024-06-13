@@ -9,7 +9,7 @@ public class ServicioPeliculaLista implements IServicioPelicula{
 
     private final List<Pelicula> peliculas;
 
-    public ServicioPeliculaLista(List<Pelicula> peliculas) {
+    public ServicioPeliculaLista() {
         this.peliculas = new ArrayList<>();
     }
 
