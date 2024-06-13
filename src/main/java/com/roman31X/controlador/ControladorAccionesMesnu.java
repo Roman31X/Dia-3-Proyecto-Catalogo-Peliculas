@@ -21,15 +21,13 @@ public class ControladorAccionesMesnu {
                 iServicioPelicula.listarPelicula();
             }
             case 3 -> {
-                System.out.print("| Ingrese la película a buscar: ");
-                var buscarPelicula = consola.nextLine();
-                iServicioPelicula.buscarPelicula(new Pelicula(buscarPelicula));
+                iServicioPelicula.buscarPelicula(consola);
             }
             case 4 -> {
                 System.out.println("""
-                        |-----------------------------------|
-                        |        HASTA PRONTO! 😁👍        |
-                        |-----------------------------------|
+                        |--------------------------|
+                        |   HASTA PRONTO! 😁👍    |
+                        |--------------------------|
                         """);
                 return true;
             }

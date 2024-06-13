@@ -3,7 +3,7 @@ package com.roman31X.vista;
 public class OpcionesMenuMensajes {
 
     public static void mostarMenu(){
-        System.out.println("""
+        System.out.print("""
                 |--------------------------|
                 |  CATALOGO DE PELÍCULAS   |
                 |--------------------------|
