@@ -1,6 +1,7 @@
 package com.roman31X.AplicacionCatalogoPeliculas;
 
 import com.roman31X.servicio.IServicioPelicula;
+import com.roman31X.servicio.ServicioPeliculaArchivo;
 import com.roman31X.servicio.ServicioPeliculaLista;
 import java.util.Scanner;
 
@@ -13,7 +14,11 @@ public class AplicacionCatalogoPeliculas {
         var salir = false;
         var consola = new Scanner(System.in);
 
-        IServicioPelicula servicioPelicula = new ServicioPeliculaLista();
+        // Línea para prueba de acción de REGISTRAR - LISTAR - BUSCAR
+        //IServicioPelicula servicioPelicula = new ServicioPeliculaLista();
+
+        // Línea para implementar funcionalidad con archivo.txt
+        IServicioPelicula servicioPelicula = new ServicioPeliculaArchivo();
 
         while (!salir){
 
