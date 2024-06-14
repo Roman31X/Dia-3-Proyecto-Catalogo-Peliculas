@@ -66,7 +66,6 @@ public class ServicioPeliculaArchivo implements IServicioPelicula{
             System.out.println("| Ocurrió un problema con el archivo!! "+e.getMessage());
         }
 
-
     }
 
     @Override
