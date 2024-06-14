@@ -30,7 +30,7 @@ public class ServicioPeliculaLista implements IServicioPelicula{
     }
 
     @Override
-    public void buscarPelicula(Scanner consola, Pelicula pelicula) {
+    public void buscarPelicula(Scanner consola) {
 
         if(!peliculas.isEmpty()){
             System.out.print("| Ingrese la película a buscar: ");

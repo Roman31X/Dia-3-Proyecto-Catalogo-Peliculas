@@ -40,11 +40,14 @@ public class ServicioPeliculaArchivo implements IServicioPelicula{
             linea = entrada.readLine();
 
             if(linea != null){
-                System.out.println("|  Datos recuperados del archivo   |");
+                System.out.println("""
+                        |----------------------------------|
+                        |  Datos recuperados del archivo   |
+                        |----------------------------------|""");
                 //ciclo para leer todas las líneas del archivo
                 while (linea != null){
                     var pelicula = new Pelicula(linea);
-                    System.out.println(pelicula);
+                    System.out.println("| "+pelicula);
 
                     //lectura de línea de archivo para verificar si no hay más información
                     linea = entrada.readLine();
@@ -95,7 +98,7 @@ public class ServicioPeliculaArchivo implements IServicioPelicula{
     }
 
     @Override
-    public void buscarPelicula(Scanner consola, Pelicula pelicula) {
+    public void buscarPelicula(Scanner consola) {
         var archivo = new File(NOMBRE_ARCHIVO);
         try{
 
@@ -107,11 +110,13 @@ public class ServicioPeliculaArchivo implements IServicioPelicula{
             lineaTexto = lectura.readLine();
             var indice = 1;
             var encontrada = false;
-            var peliculaBuuscar = pelicula.getNombre();
+
             if(lineaTexto != null){
+                System.out.print("| Ingrese nombre de la película a buscar: ");
+                var peliculaBuscar = consola.nextLine();
                 while (lineaTexto != null){
                     //Buscamos sin importar mayúscula ni minúsculas
-                    if(peliculaBuuscar != null && peliculaBuuscar.equalsIgnoreCase(lineaTexto)){
+                    if(peliculaBuscar != null && peliculaBuscar.equalsIgnoreCase(lineaTexto)){
                         encontrada = true;
                         break;
                     }
@@ -121,9 +126,9 @@ public class ServicioPeliculaArchivo implements IServicioPelicula{
                     indice++;
                 }
                 if(encontrada){
-                    System.out.println("| Se encontró la película: ["+pelicula.getNombre()+"] en el indice: ["+indice+"]");
+                    System.out.println("| Se encontró la película: ["+lineaTexto+"] en el indice: ["+indice+"]");
                 }else{
-                    System.out.println("| No se encontró la película: ["+pelicula.getNombre()+"]");
+                    System.out.println("| No se encontró la película: ["+peliculaBuscar+"]");
                 }
             }else{
                 System.out.println("""
