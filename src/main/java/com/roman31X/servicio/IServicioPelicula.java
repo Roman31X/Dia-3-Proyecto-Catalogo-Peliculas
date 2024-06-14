@@ -10,6 +10,6 @@ public interface IServicioPelicula {
 
     public void agregarPelicula(Pelicula pelicula);
 
-    public void buscarPelicula(Scanner consola);
+    public void buscarPelicula(Scanner consola, Pelicula pelicula);
 
 }

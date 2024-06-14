@@ -21,7 +21,7 @@ public class ControladorAccionesMesnu {
                 iServicioPelicula.listarPelicula();
             }
             case 3 -> {
-                iServicioPelicula.buscarPelicula(consola);
+                iServicioPelicula.buscarPelicula(consola, new Pelicula());
             }
             case 4 -> {
                 System.out.println("""

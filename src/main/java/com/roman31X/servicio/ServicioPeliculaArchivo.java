@@ -69,7 +69,7 @@ public class ServicioPeliculaArchivo implements IServicioPelicula{
     @Override
     public void agregarPelicula(Pelicula pelicula) {
         // Abrimos el archivo para concatenar información y
-        // no e suna nueva escritura
+        // no es una nueva escritura
 
         boolean anexar = false;
         var archivo = new File(NOMBRE_ARCHIVO);
@@ -95,7 +95,51 @@ public class ServicioPeliculaArchivo implements IServicioPelicula{
     }
 
     @Override
-    public void buscarPelicula(Scanner consola) {
+    public void buscarPelicula(Scanner consola, Pelicula pelicula) {
+        var archivo = new File(NOMBRE_ARCHIVO);
+        try{
+
+            //Abrimos el archivo para lectura linea a linea
+            var lectura = new BufferedReader(new FileReader(archivo));
+            String lineaTexto;
+
+            //Primera lectura para ingresar en el bucle
+            lineaTexto = lectura.readLine();
+            var indice = 1;
+            var encontrada = false;
+            var peliculaBuuscar = pelicula.getNombre();
+            if(lineaTexto != null){
+                while (lineaTexto != null){
+                    //Buscamos sin importar mayúscula ni minúsculas
+                    if(peliculaBuuscar != null && peliculaBuuscar.equalsIgnoreCase(lineaTexto)){
+                        encontrada = true;
+                        break;
+                    }
+
+                    //Leemos la siguiente línea antes de la siguiente iteración
+                    lineaTexto = lectura.readLine();
+                    indice++;
+                }
+                if(encontrada){
+                    System.out.println("| Se encontró la película: ["+pelicula.getNombre()+"] en el indice: ["+indice+"]");
+                }else{
+                    System.out.println("| No se encontró la película: ["+pelicula.getNombre()+"]");
+                }
+            }else{
+                System.out.println("""
+                        |----------------------------------|
+                        |  El archivo se encuentra vacío   |
+                        |    Debe de registrar primero     |
+                        |----------------------------------|
+                        """);
+            }
+
+            //Cerramos la lectura del archivo
+            lectura.close();
+
+        }catch (Exception e){
+            System.out.println("| Ocurrió un error al buscar en el archivo!! "+e.getMessage());
+        }
 
     }
 }
